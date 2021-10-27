@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+.bg-primary {
+  background-color: #BC5768 !important;
+}
+
+@font-face {
+  font-family: "Merriweather-Regular";
+  src: url("../fonts/Merriweather/Merriweather-Regular.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Bold";
+  src: url("../fonts/Merriweather/Merriweather-Bold.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Italic";
+  src: url("../fonts/Merriweather/Merriweather-Italic.ttf");
+}
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("../fonts/Poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("../fonts/Poppins/Poppins-Bold.ttf");
+}
+@font-face {
+  font-family: "Poppins-Italic";
+  src: url("../fonts/Poppins/Poppins-Italic.ttf");
+}
+.container-fluid {
+  padding: 0 2rem;
+}
+
+.navbar-brand {
+  font-family: "Merriweather-Bold";
+  color: #191614 !important;
+}
+.navbar-brand span {
+  color: #BC5768;
+}
+
+.nav-link {
+  margin-left: 1rem;
+  color: #747D7D !important;
+  transition: all 0.3s linear;
+}
+.nav-link.active, .nav-link:hover {
+  color: #BC5768 !important;
+}
+
+.banner {
+  background-image: linear-gradient(to right, #BC5768, #674B5C);
+}
+.banner__img {
+  position: relative;
+  width: 300px;
+  height: 250px;
+}
+.banner__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.banner__content {
+  font-family: "Poppins-Regular";
+  color: white;
+}
+.banner__title {
+  font-family: "Merriweather-Regular";
+}
+
+.home-about__img {
+  width: 500px;
+}
+.home-about__text {
+  font-family: "Poppins-Italic";
+}
+
+.contact__info-item {
+  font-family: "Poppins-Regular";
+}
+.contact__icon {
+  color: #BC5768;
+}
+.contact textarea {
+  resize: none;
+}
+
+.login .form button {
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+.login .form-floating a {
+  color: #BC5768;
+  text-decoration: none;
+  font-family: "Poppins-Bold";
+}
+.login .form-floating a:hover {
+  text-decoration: underline;
+}
+
+.footer__text {
+  font-family: "Poppins-Regular";
+}/*# sourceMappingURL=main.css.map */

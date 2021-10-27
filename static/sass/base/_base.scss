@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    // font-family: $mw-regular;
+    scroll-behavior: smooth;
+}
+
+.bg-primary {
+    background-color: $primary-color !important;
+}

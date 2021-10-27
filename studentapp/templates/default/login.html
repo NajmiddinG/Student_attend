@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block context %}
+    <div class="login">
+        <div class="bg-primary">
+            <div class="container">
+                <h2 class="home-about__title py-1 display-5 fs-2 text-white">Login Form</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-4">
+                    <form class="form" action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-floating mb-4">
+                            <input type="text" name="username_" id="username_" placeholder="Email" class="form-control">
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" name="password_" id="email" placeholder="Password" class="form-control">
+                            <label for="password_">Password</label>
+                            <a href="#" class="text-center d-md-block mt-2 mb-4">Forgot Password</a>
+                        </div>
+                        <button type="submit"><a href="#" class="btn btn-danger mb-4">Login</a></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock context %}

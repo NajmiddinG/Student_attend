@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block context %}
+    <div class="contact">
+        <div class="bg-primary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="home-about__title py-1 display-5 fs-2 text-white mb-0">Contact</h2>
+                    </div>
+                    <div class="col-md-6  d-none d-md-block">
+                        <h2 class="home-about__title py-1 display-5 text-center fs-2 text-white mb-0">Contact info</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact__content">
+            <div class="container py-4 my-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="contact__info">
+                            <div class="contact__info-item d-flex">
+                                <i class="fas fa-map-marker-alt fs-5 me-3 contact__icon"></i>
+                                <label for="" class="fs-6 mb-5">
+                                    '2447 Sharp Street\nJuanfurt, De 51168 '<br>
+                                    '9299 Harper Summit\nWest Brandon, SD <br>
+                                    12873'
+                                </label>
+                            </div>
+                            <div class="contact__info-item d-flex">
+                                <i class="fas fa-phone-alt fs-5 me-3 contact__icon"></i>
+                                <label for="" class="fs-6 mb-5">
+                                    support:'997663681'
+                                </label>
+                            </div>
+                            <div class="contact__info-item d-flex">
+                                <i class="far fa-envelope fs-5 me-3 contact__icon"></i>
+                                <label for="" class="fs-6 mb-5">
+                                    'morelesscott@yahoo.com '<br>
+                                    'danielkevin@reys-carrillo.biz'<br>
+                                    'ewise@taylor-washington.biz'
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <form action="{% url 'contact' %}"  method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <input type="text" name="name" placeholder="Name" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" name="email" placeholder="Email" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="number" min="100000000" max="999999999" name="number" placeholder="Contact Number" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <textarea rows="5" name="text" placeholder="Your Message" class="form-control" maxlength="500" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-danger">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock context %}

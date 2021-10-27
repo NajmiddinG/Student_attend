@@ -1,0 +1,19 @@
+.login{
+    .form{
+        button{
+            width: 100%;
+            background: transparent;
+            border: none;
+        }
+        &-floating{
+            a{
+                color: $primary-color;
+                text-decoration: none;
+                font-family: $pp-bold;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

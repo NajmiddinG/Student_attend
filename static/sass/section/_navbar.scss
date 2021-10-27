@@ -1,0 +1,23 @@
+.container-fluid {
+    padding: 0 2rem;
+}
+
+.navbar-brand {
+    font-family: $mw-bold;
+    color: $logo-color !important;
+    
+    span {
+        color: $primary-color;
+    }
+}
+
+.nav-link {
+    margin-left: 1rem;
+    color: $text-color !important;
+    transition: all 0.3s linear;
+
+    &.active,
+    &:hover {
+        color: $primary-color !important;
+    }
+}
