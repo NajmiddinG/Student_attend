@@ -1,10 +1,13 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
   scroll-behavior: smooth;
 }
 
@@ -12,30 +15,130 @@ body {
   background-color: #BC5768 !important;
 }
 
+#page {
+  display: none;
+}
+
 @font-face {
   font-family: "Merriweather-Regular";
-  src: url("../fonts/Merriweather/Merriweather-Regular.ttf");
+  src: url("../../fonts/Merriweather/Merriweather-Regular.ttf");
 }
+
 @font-face {
   font-family: "Merriweather-Bold";
-  src: url("../fonts/Merriweather/Merriweather-Bold.ttf");
+  src: url("../../fonts/Merriweather/Merriweather-Bold.ttf");
 }
+
 @font-face {
   font-family: "Merriweather-Italic";
-  src: url("../fonts/Merriweather/Merriweather-Italic.ttf");
+  src: url("../../fonts/Merriweather/Merriweather-Italic.ttf");
 }
+
 @font-face {
   font-family: "Poppins-Regular";
-  src: url("../fonts/Poppins/Poppins-Regular.ttf");
+  src: url("../../fonts/Poppins/Poppins-Regular.ttf");
 }
+
 @font-face {
   font-family: "Poppins-Bold";
-  src: url("../fonts/Poppins/Poppins-Bold.ttf");
+  src: url("../../fonts/Poppins/Poppins-Bold.ttf");
 }
+
 @font-face {
   font-family: "Poppins-Italic";
-  src: url("../fonts/Poppins/Poppins-Italic.ttf");
+  src: url("../../fonts/Poppins/Poppins-Italic.ttf");
 }
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100vh;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+  width: 80px;
+  height: 80px;
+  -webkit-animation: animate 1s linear infinite;
+          animation: animate 1s linear infinite;
+}
+
+.loader__item {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #f00;
+  -webkit-animation: rotate 1s linear infinite;
+          animation: rotate 1s linear infinite;
+}
+
+.loader__item:nth-child(1) {
+  top: 0;
+  left: 0;
+  background: #f79f1f;
+}
+
+.loader__item:nth-child(2) {
+  top: 0;
+  right: 0;
+  background: #12cbc4;
+}
+
+.loader__item:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  background: #ed4c67;
+}
+
+.loader__item:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  background: #a3cb38;
+}
+
+@-webkit-keyframes animate {
+  0%, 10%, 90%, 100% {
+    width: 80px;
+    height: 80px;
+  }
+  50% {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@keyframes animate {
+  0%, 10%, 90%, 100% {
+    width: 80px;
+    height: 80px;
+  }
+  50% {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@-webkit-keyframes rotate {
+  0%, 10% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  60%, 90%, 100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+
+@keyframes rotate {
+  0%, 10% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  60%, 90%, 100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+
 .container-fluid {
   padding: 0 2rem;
 }
@@ -44,6 +147,7 @@ body {
   font-family: "Merriweather-Bold";
   color: #191614 !important;
 }
+
 .navbar-brand span {
   color: #BC5768;
 }
@@ -51,29 +155,37 @@ body {
 .nav-link {
   margin-left: 1rem;
   color: #747D7D !important;
+  -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
+
 .nav-link.active, .nav-link:hover {
   color: #BC5768 !important;
 }
 
 .banner {
+  background-image: -webkit-gradient(linear, left top, right top, from(#BC5768), to(#674B5C));
   background-image: linear-gradient(to right, #BC5768, #674B5C);
 }
+
 .banner__img {
   position: relative;
   width: 300px;
   height: 250px;
 }
+
 .banner__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
+
 .banner__content {
   font-family: "Poppins-Regular";
   color: white;
 }
+
 .banner__title {
   font-family: "Merriweather-Regular";
 }
@@ -81,6 +193,7 @@ body {
 .home-about__img {
   width: 500px;
 }
+
 .home-about__text {
   font-family: "Poppins-Italic";
 }
@@ -88,11 +201,9 @@ body {
 .contact__info-item {
   font-family: "Poppins-Regular";
 }
+
 .contact__icon {
   color: #BC5768;
-}
-.contact textarea {
-  resize: none;
 }
 
 .login .form button {
@@ -100,15 +211,18 @@ body {
   background: transparent;
   border: none;
 }
+
 .login .form-floating a {
   color: #BC5768;
   text-decoration: none;
   font-family: "Poppins-Bold";
 }
+
 .login .form-floating a:hover {
   text-decoration: underline;
 }
 
 .footer__text {
   font-family: "Poppins-Regular";
-}/*# sourceMappingURL=main.css.map */
+}
+/*# sourceMappingURL=main.css.map */

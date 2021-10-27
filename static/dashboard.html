@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>Dashboard</title>
     <!-- Font awesome css -->
     <link rel="stylesheet" href="./css/all.css">
     <!-- Bootstrap css -->
@@ -30,54 +30,53 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="index.html"><i class="fas fa-home"></i> Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active"><i class="fas fa-info-circle"></i> About</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-users"></i> Student
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" href="addStudent.html">Add Student</a></li>
+                            <li><a class="dropdown-item" href="#">Manage Student</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-clock"></i> Attendance
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <li><a class="dropdown-item" href="#">Add Attendance</a></li>
+                            <li><a class="dropdown-item" href="#">Manage Attendance</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="contact.html" class="nav-link"><i class="fas fa-address-book"></i> Contact us</a>
+                        <a href="#" class="nav-link active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a href="login.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a href="logout.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> Logout</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- ===== /Navbar ===== -->
-
-    <!-- About -->
-    <div class="about">
+    <!-- ===== Dashboard ====== -->
+    <div class="dashboard">
         <div class="bg-primary">
             <div class="container">
-                <h2 class="home-about__title py-1 display-5 fs-1 text-white">Student Attendance Management</h2>
+                <h2 class="home-about__title py-1 display-5 fs-1 text-white">Dashboard</h2>
             </div>
         </div>
-        <div class="about__content">
-            <div class="container py-4">
-                <div class="row">
-                    <div class="col-md-5">
-                        <img src="./images/image2.jpg" class="img-fluid rounded">
-                    </div>
-                    <div class="col-md-7">
-                        <p class="about__content-text fw-bold fs-6 mt-4 mt-md-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nostrum sed? Vel
-                            laboriosam numquam dignissimos excepturi itaque iusto quod nihil rem facilis placeat,
-                            explicabo praesentium molestiae expedita facere, odit cumque quia tenetur ex eius eaque
-                            assumenda doloremque laborum! Sunt tempora repudiandae repellendus maiores assumenda
-                            laudantium nobis quasi nesciunt quo voluptates.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nostrum sed? Vel
-                            laboriosam numquam dignissimos excepturi itaque iusto quod nihil rem facilis placeat,
-                            explicabo praesentium molestiae expedita facere, odit cumque quia tenetur ex eius eaque
-                            assumenda doloremque laborum! Sunt tempora repudiandae repellendus maiores assumenda
-                            laudantium nobis quasi nesciunt quo voluptates.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ul class="dashboard-list d-flex flex-column align-items-center my-5">
+            <a href="addStudent.html" class="btn btn-secondary m-1 w-50">Add Student</a>
+            <a href="#" class="btn btn-secondary m-1 w-50">Manage Student</a>
+            <a href="#" class="btn btn-secondary m-1 w-50">Add Attendance</a>
+            <a href="#" class="btn btn-secondary m-1 w-50">Manage Attendance</a>
+            <a href="#" class="btn btn-secondary m-1 w-50">Change Password</a>
+        </ul>
     </div>
-    <!-- /About -->
-
+    <!-- ===== /Dashboard ====== -->
     <!-- ===== Footer ===== -->
     <section class="footer bg-primary">
         <div class="container py-3">
