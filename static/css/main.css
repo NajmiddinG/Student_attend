@@ -6,8 +6,6 @@
 }
 
 body {
-  -webkit-transition: 0.3s linear;
-  transition: 0.3s linear;
   scroll-behavior: smooth;
 }
 
@@ -196,6 +194,10 @@ body {
 
 .home-about__text {
   font-family: "Poppins-Italic";
+}
+
+.about__content-text {
+  font-family: "Poppins-Regular";
 }
 
 .contact__info-item {

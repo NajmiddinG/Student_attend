@@ -15,113 +15,123 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
-<body>
-    <!-- ===== Navbar ===== -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-ligt">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><span>S</span>tudent <span>A</span>ttendance <span>M</span>anagement</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html"><i class="fas fa-home"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active"><i class="fas fa-address-book"></i> Contact us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="login.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- ===== /Navbar ===== -->
-
-    <!-- ===== Contact-Us ===== -->
-    <div class="contact">
-        <div class="bg-primary">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="home-about__title py-1 display-5 fs-2 text-white">Contact</h2>
-                    </div>
-                    <div class="col-md-6  d-none d-md-block">
-                        <h2 class="home-about__title py-1 display-5 text-center fs-2 text-white">Contact info</h2>
-                    </div>
+<body onload="loading()">
+    <!-- ===== Loading ===== -->
+    <div class="loader">
+        <span class="loader__item"></span>
+        <span class="loader__item"></span>
+        <span class="loader__item"></span>
+        <span class="loader__item"></span>
+    </div>
+    <!-- ===== /Loading ===== -->
+    <div id="page">
+        <!-- ===== Navbar ===== -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-ligt">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><span>S</span>tudent <span>A</span>ttendance <span>M</span>anagement</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html"><i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active"><i class="fas fa-address-book"></i> Contact us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <div class="contact__content">
-            <div class="container py-4 my-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="contact__info">
-                            <div class="contact__info-item d-flex">
-                                <i class="fas fa-map-marker-alt fs-5 me-3 contact__icon"></i>
-                                <label for="" class="fs-6 mb-5">
-                                    '2447 Sharp Street\nJuanfurt, De 51168 '<br>
-                                    '9299 Harper Summit\nWest Brandon, SD <br>
-                                    12873'
-                                </label>
-                            </div>
-                            <div class="contact__info-item d-flex">
-                                <i class="fas fa-phone-alt fs-5 me-3 contact__icon"></i>
-                                <label for="" class="fs-6 mb-5">
-                                    support:'8602768216'
-                                </label>
-                            </div>
-                            <div class="contact__info-item d-flex">
-                                <i class="far fa-envelope fs-5 me-3 contact__icon"></i>
-                                <label for="" class="fs-6 mb-5">
-                                    'morelesscott@yahoo.com '<br>
-                                    'danielkevin@reys-carrillo.biz'<br>
-                                    'ewise@taylor-washington.biz'
-                                </label>
-                            </div>
+        </nav>
+        <!-- ===== /Navbar ===== -->
+    
+        <!-- ===== Contact-Us ===== -->
+        <div class="contact">
+            <div class="bg-primary">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2 class="home-about__title py-1 display-5 fs-2 text-white">Contact</h2>
+                        </div>
+                        <div class="col-md-6  d-none d-md-block">
+                            <h2 class="home-about__title py-1 display-5 text-center fs-2 text-white">Contact info</h2>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <form>
-                            <div class="mb-3">
-                                <input type="text" placeholder="Name" class="form-control">
+                </div>
+            </div>
+            <div class="contact__content">
+                <div class="container py-4 my-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact__info">
+                                <div class="contact__info-item d-flex">
+                                    <i class="fas fa-map-marker-alt fs-5 me-3 contact__icon"></i>
+                                    <label for="" class="fs-6 mb-5">
+                                        '2447 Sharp Street\nJuanfurt, De 51168 '<br>
+                                        '9299 Harper Summit\nWest Brandon, SD <br>
+                                        12873'
+                                    </label>
+                                </div>
+                                <div class="contact__info-item d-flex">
+                                    <i class="fas fa-phone-alt fs-5 me-3 contact__icon"></i>
+                                    <label for="" class="fs-6 mb-5">
+                                        support:'8602768216'
+                                    </label>
+                                </div>
+                                <div class="contact__info-item d-flex">
+                                    <i class="far fa-envelope fs-5 me-3 contact__icon"></i>
+                                    <label for="" class="fs-6 mb-5">
+                                        'morelesscott@yahoo.com '<br>
+                                        'danielkevin@reys-carrillo.biz'<br>
+                                        'ewise@taylor-washington.biz'
+                                    </label>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <input type="email" placeholder="Email" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" placeholder="Contact Number" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <textarea placeholder="Your Message" class="form-control"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <button class="btn btn-danger">Send Message</button>
-                            </div>
-                        </form>
+                        </div>
+                        <div class="col-md-6">
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" placeholder="Name" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" placeholder="Email" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" placeholder="Contact Number" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea placeholder="Your Message" class="form-control"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <button class="btn btn-danger">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- ===== /Contact-Us ===== -->
+    
+        <!-- ===== Footer ===== -->
+        <section class="footer bg-primary">
+            <div class="container py-3">
+                <p class="footer__text text-center mb-0 text-white">
+                    Copyright &copy; 2021. All Right Reserved
+                </p>
+            </div>
+        </section>
+        <!-- ===== /Footer ===== -->
     </div>
-    <!-- ===== /Contact-Us ===== -->
-
-    <!-- ===== Footer ===== -->
-    <section class="footer bg-primary">
-        <div class="container py-3">
-            <p class="footer__text text-center mb-0 text-white">
-                Copyright &copy; 2021. All Right Reserved
-            </p>
-        </div>
-    </section>
-    <!-- ===== /Footer ===== -->
 
     <!-- Bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
@@ -130,6 +140,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
