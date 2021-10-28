@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block context %}
+    <div class="bg-primary">
+        <div class="container">
+            <h2 class="home-about__title py-1 display-5 fs-1 text-white">Add Student</h2>
+        </div>
+    </div>
+    <!-- ===== Form ===== -->
+    <form class="w-50 mx-auto my-4" action="{% url 'studentadd' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-2">
+            <input type="text" name="roll_no" placeholder="Roll No." class="form-control">
+        </div>
+        <div class="mb-2">
+            <input type="text" name="first_name" placeholder="First Name" class="form-control">
+        </div>
+        <div class="mb-2">
+            <input type="text" name="last_name" placeholder="Last Name" class="form-control">
+        </div>
+        <div class="mb-2">
+            <input type="number" name="semestr" placeholder="Semestr" min=1 max="8" class="form-control">
+        </div>
+        <div class="mb-2">
+            <input type="text" name="branch" placeholder="Branch" class="form-control">
+        </div>
+        <div class="mb-2">
+            <label class="me-3">
+                <input type="radio" checked name="gender"> Male
+            </label>
+            <label>
+                <input type="radio" name="gender"> Female
+            </label>
+        </div>
+        <div class="mb-2">
+            <input type="number" name="contact_number" max="9999999999" min="100000000" placeholder="Contact Number" class="form-control">
+        </div>
+        <div class="mb-2">
+            <input type="email" name="email" placeholder="Email" class="form-control">
+        </div>
+        <div class="mb-2">
+            <input type="text" name="city" placeholder="City" class="form-control">
+        </div>
+        <div class="mb-2">
+            <input type="number" name="pincode" min="0" placeholder="Pincode" class="form-control">
+        </div>
+        <div class="mb-2">
+            <input type="text" name="address" placeholder="Address" class="form-control">
+        </div>
+        <button type="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
+        <button type="submit" name="back" class="btn btn-danger" value="back">Back</button>
+    </form>
+    <!-- ===== /Form ===== -->
+{% endblock %}
