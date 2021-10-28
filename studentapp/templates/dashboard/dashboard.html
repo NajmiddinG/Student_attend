@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 
 {% block context %}
-<h1>Salom</h1>
+    <div class="dashboard">
+        <div class="bg-primary">
+            <div class="container">
+                <h2 class="home-about__title py-1 display-5 fs-1 text-white">Dashboard</h2>
+            </div>
+        </div>
+        <ul class="dashboard-list d-flex flex-column align-items-center my-5">
+            <a href="{% url 'studentadd' %}" class="btn btn-secondary m-1 w-50">Add Student</a>
+            <a href="{% url 'studentmanage' %}" class="btn btn-secondary m-1 w-50">Manage Student</a>
+            <a href="{% url 'attendanceadd' %}" class="btn btn-secondary m-1 w-50">Add Attendance</a>
+            <a href="{% url 'attendancemanage' %}" class="btn btn-secondary m-1 w-50">Manage Attendance</a>
+            <a href="#" class="btn btn-secondary m-1 w-50">Change Password</a>
+        </ul>
+    </div>
 {% endblock %}
