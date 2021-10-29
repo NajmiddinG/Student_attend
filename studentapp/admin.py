@@ -21,17 +21,17 @@ class UserAdmin(UserAdmin):
 
 @admin.register(Student)
 class Student(admin.ModelAdmin):
-    list_display = ('roll_no', 'first_name', 'last_name', 'sem', 'branch', 'gender', 'nomer', 'email', 'city', 'pincode', 'address')
+    list_display = ('id', 'roll_no', 'first_name', 'last_name', 'sem', 'branch', 'gender', 'nomer', 'email', 'city', 'pincode', 'address')
     list_filter = ('roll_no', 'first_name', 'last_name', 'sem', 'branch', 'gender', 'nomer', 'email', 'city', 'pincode', 'address')
 
 
 @admin.register(StudentAttend)
 class StudentAttend(admin.ModelAdmin):
-    list_display = ('student', 'atten_date', 'in_time', 'out_time', 'description')
+    list_display = ('id', 'student', 'atten_date', 'in_time', 'out_time', 'description')
     list_filter = ('student', 'atten_date', 'in_time', 'out_time', 'description')
 
 @admin.register(ContactInfo)
 class ContactInfo(admin.ModelAdmin):
-    list_display = ('name', 'email', 'nomer', 'message')
+    list_display = ('id', 'name', 'email', 'nomer', 'message')
     list_filter = ('name', 'email', 'nomer', 'message')
 

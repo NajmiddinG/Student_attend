@@ -1,12 +1,13 @@
+import datetime
 from http.client import HTTPResponse
-
 from django.contrib import messages
 from django.core.exceptions import ViewDoesNotExist
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
-from studentapp.models import ContactInfo, Student
+from studentapp.models import ContactInfo, Student, StudentAttend
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+
 
 def home(request):
     context = {
@@ -22,7 +23,6 @@ def about(request):
         'active': 'about'
     }
     return render(request, 'default/about.html', context)
-
 
 
 def contact(request):
@@ -44,7 +44,6 @@ def contact(request):
         'active': 'contact'
     }
     return render(request, 'default/contact.html', context)
-
 
 
 def login(request):
@@ -78,6 +77,7 @@ def login(request):
         else:
             return render(request, 'default/login.html', context)
 
+
 def dashboard(request):
     if not request.user.is_authenticated:
         return redirect('login')
@@ -87,6 +87,7 @@ def dashboard(request):
         'active': 'dashboard'
     }
     return render(request, 'dashboard/dashboard.html', context)
+
 
 def studentAdd(request):
     if request.POST.get('submit') == 'submit':
@@ -101,7 +102,9 @@ def studentAdd(request):
         pincode = request.POST.get('pincode')
         address = request.POST.get('address')
         if roll_no and first_name and last_name and semestr and branch and contact_number and email and city and pincode and address:
-            Student.objects.create(roll_no=roll_no, first_name=first_name, last_name=last_name, sem=semestr, branch=branch, nomer=contact_number, email=email, city=city, pincode=pincode, address=address)
+            Student.objects.create(roll_no=roll_no, first_name=first_name, last_name=last_name, sem=semestr,
+                                   branch=branch, nomer=contact_number, email=email, city=city, pincode=pincode,
+                                   address=address)
             messages.success(request, "Muvaffiyatli qo'shildi")
             return redirect('studentmanage')
     elif request.POST.get('back') == 'back':
@@ -112,6 +115,7 @@ def studentAdd(request):
     }
     return render(request, 'student/add.html', context)
 
+
 def studentManage(request):
     context = {
         'title': 'Manage student',
@@ -121,28 +125,30 @@ def studentManage(request):
 
 
 def attendanceAdd(request):
-    if request.POST.get('submit') == 'submit':
-        roll_no = request.POST.get('roll_no')
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        semestr = request.POST.get('semestr')
-        branch = request.POST.get('branch')
-        contact_number = request.POST.get('contact_number')
-        email = request.POST.get('email')
-        city = request.POST.get('city')
-        pincode = request.POST.get('pincode')
-        address = request.POST.get('address')
-        if roll_no and first_name and last_name and semestr and branch and contact_number and email and city and pincode and address:
-            Student.objects.create(roll_no=roll_no, first_name=first_name, last_name=last_name, sem=semestr, branch=branch, nomer=contact_number, email=email, city=city, pincode=pincode, address=address)
+    if request.POST.get('add') == 'submit':
+        student = int(request.POST.get('select'))
+        date = request.POST.get('date')
+        print(date)
+        in_time = request.POST.get('in_time')
+        out_time = request.POST.get('out_time')
+        description = request.POST.get('description')
+
+        # print(datetime.date(int(date[0:4]), int(date[5:7]), int(date[8:10])))
+        if student and date and in_time and out_time and description:
+            StudentAttend.objects.create(student=Student.objects.get(id=student), atten_date=date, in_time=in_time,
+                                         out_time=out_time, description=description)
             messages.success(request, "Muvaffiyatli qo'shildi")
-            return redirect('studentmanage')
-    elif request.POST.get('back') == 'back':
+            return redirect('attendancemanage')
+    elif request.POST.get('add') == 'back':
         return redirect('dashboard')
+    student_name = Student.objects.all()
     context = {
         'title': 'Attendance add',
-        'active': 'attendance_add'
+        'active': 'attendance_add',
+        'student_name': student_name,
     }
     return render(request, 'attendance/add.html', context)
+
 
 def attendanceManage(request):
     context = {
@@ -150,6 +156,8 @@ def attendanceManage(request):
         'active': 'manage_attendance'
     }
     return render(request, 'attendance/manage.html', context)
+
+
 def logout(request):
     auth_logout(request)
     context = {
