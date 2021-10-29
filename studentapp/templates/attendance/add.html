@@ -1,5 +1,46 @@
 {% extends 'base.html' %}
 
 {% block context %}
-<h1>attendance add</h1>
+    <div class="bg-primary">
+        <div class="container">
+            <h2 class="home-about__title py-1 display-5 fs-1 text-white">Add Attendance</h2>
+        </div>
+    </div>
+    <section class="attendance container">
+        <form class="w-50 mx-auto" action="{% url 'attendanceadd' %}" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <span>Student</span>
+                <select class="form-select" name="select" aria-label="Default select example">
+                    {% if student_name %}
+                        {% for student in student_name %}
+                            <option value="{{ student.id }}">{{ student.first_name|capfirst }}</option>
+                        {% endfor %}
+
+                    {% endif %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <span>Attendance Date</span>
+                <input type="date" name="date"   class="form-control">
+            </div>
+            <div class="mb-3">
+                <span>In_Time</span>
+                <input type="time" name="in_time" class="form-control">
+            </div>
+            <div class="mb-3">
+                <span>Out_Time</span>
+                <input type="time" name="out_time" class="form-control">
+            </div>
+            <div class="mb-3">
+                <span>Description</span>
+                <textarea class="form-control" name="description"></textarea>
+            </div>
+            <div class="mb-3">
+                <button type="submit" name="add" class="btn bg-primary text-white" value="submit">Add Attendance
+                </button>
+                <button type="button" name="back" class="btn btn-secondary" value="back">Back</button>
+            </div>
+        </form>
+    </section>
 {% endblock %}
