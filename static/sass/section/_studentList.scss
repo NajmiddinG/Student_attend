@@ -1,0 +1,22 @@
+.studentsList {
+    font-family: $pp-regular;
+    input {
+        outline: none;
+        border: 1px solid;
+        border-radius: 2px;
+        padding: 0 4px;
+    }
+    .label-num > input {
+        width: 60px;
+    }
+    .arrow {
+        cursor: pointer;
+        .fas {
+            color: #ccc;
+            font-size: 12px;
+        }
+        .fas.active {
+            color: #000;
+        }
+    }
+}
