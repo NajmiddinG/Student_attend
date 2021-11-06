@@ -1,3 +1,4 @@
+// loader
 const loader = document.querySelector('.loader');
 
 const loading = () => {

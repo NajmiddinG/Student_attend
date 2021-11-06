@@ -200,6 +200,34 @@ body {
   font-family: "Poppins-Regular";
 }
 
+.studentsList {
+  font-family: "Poppins-Regular";
+}
+
+.studentsList input {
+  outline: none;
+  border: 1px solid;
+  border-radius: 2px;
+  padding: 0 4px;
+}
+
+.studentsList .label-num > input {
+  width: 60px;
+}
+
+.studentsList .arrow {
+  cursor: pointer;
+}
+
+.studentsList .arrow .fas {
+  color: #ccc;
+  font-size: 12px;
+}
+
+.studentsList .arrow .fas.active {
+  color: #000;
+}
+
 .contact__info-item {
   font-family: "Poppins-Regular";
 }

@@ -1,16 +1,16 @@
-.login{
-    .form{
-        button{
+.login {
+    .form {
+        button {
             width: 100%;
             background: transparent;
             border: none;
         }
-        &-floating{
-            a{
+        &-floating {
+            a {
                 color: $primary-color;
                 text-decoration: none;
                 font-family: $pp-bold;
-                &:hover{
+                &:hover {
                     text-decoration: underline;
                 }
             }
