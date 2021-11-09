@@ -1,5 +1,174 @@
 {% extends 'base.html' %}
 
 {% block context %}
-<h1>Manage attendance</h1>
+
+    <div class="bg-primary">
+        <div class="container">
+            <h2 class="home-about__title py-1 display-5 fs-1 text-white">Attendance List</h2>
+        </div>
+    </div>
+    <!-- ===== Attendance List ====== -->
+    <div class="studentsList py-2 px-4">
+        <div class="row my-2">
+            <div class="col">
+                <form action="{% url 'attendancemanage' %}" method="get">
+                    {% csrf_token %}
+                    <label class="label-num">
+                        Show <input type="number" min="1" {% if page_len %} value="{{ page_len }}"{% endif %}
+                                    name="page_len" autocomplete="off"> entries
+                    </label>
+                </form>
+            </div>
+            <div class="col text-end">
+                <form action="{% url 'attendancemanage' %}" method="get">
+                    {% csrf_token %}
+                    <label class="label-search">
+                        Search: <input type="search" name="search">
+                    </label>
+                </form>
+            </div>
+        </div>
+        <table class="table table-bordered border-secondary table-striped caption-top">
+            <form action="{% url 'attendancemanage' %}" method="post">
+                {% csrf_token %}
+                <thead>
+                <tr>
+                    <th scope="col">
+                        <span>S.No</span>
+                        <span class="arrow float-end">
+                        <button class="order_by" type="submit" name="order" value="id"><i
+                                class="fas fa-long-arrow-alt-up {% if order == 'id' %} active {% endif %}"></i></button>
+                            <button class="order_by" type="submit" name="order" value="-id"><i
+                                    class="fas fa-long-arrow-alt-down {% if order == '-id' %} active {% endif %}"></i></button>
+                    </span>
+                    </th>
+                    <th scope="col">
+                        <span>Student Name</span>
+                        <span class="arrow float-end">
+                            <button class="order_by" type="submit" name="order" value="student"><i
+                                    class="fas fa-long-arrow-alt-up {% if order == 'student' %} active {% endif %}"></i></button>
+                            <button class="order_by" type="submit" name="order" value="-student"><i
+                                    class="fas fa-long-arrow-alt-down {% if order == '-student' %} active {% endif %}"></i></button>
+                    </span>
+                    </th>
+                    <th scope="col">
+                        <span>Attendance Date</span>
+                        <span class="arrow float-end">
+                            <button class="order_by" type="submit" name="order" value="atten_date"><i
+                                    class="fas fa-long-arrow-alt-up {% if order == 'atten_date' %} active {% endif %}"></i></button>
+                            <button class="order_by" type="submit" name="order" value="-atten_date"><i
+                                    class="fas fa-long-arrow-alt-down {% if order == '-atten_date' %} active {% endif %}"></i></button>
+                        </span>
+                    </th>
+                    <th scope="col">
+                        <span>In_time</span>
+                        <span class="arrow float-end">
+                            <button class="order_by" type="submit" name="order" value="in_time"><i
+                                    class="fas fa-long-arrow-alt-up {% if order == 'in_time' %} active {% endif %}"></i></button>
+                            <button class="order_by" type="submit" name="order" value="-in_time"><i
+                                    class="fas fa-long-arrow-alt-down {% if order == '-in_time' %} active {% endif %}"></i></button>
+                        </span>
+                    </th>
+                    <th scope="col">
+                        <span>Out_time</span>
+                        <span class="arrow float-end">
+                            <button class="order_by" type="submit" name="order" value="out_time"><i
+                                    class="fas fa-long-arrow-alt-up {% if order == 'out_time' %} active {% endif %}"></i></button>
+                            <button class="order_by" type="submit" name="order" value="-out_time"><i
+                                    class="fas fa-long-arrow-alt-down {% if order == '-out_time' %} active {% endif %}"></i></button>
+                        </span>
+                    </th>
+                    <th scope="col">
+                        <span>Description</span>
+                        <span class="arrow float-end">
+                            <button class="order_by" type="submit" name="order" value="description"><i
+                                    class="fas fa-long-arrow-alt-up {% if order == 'description' %} active {% endif %}"></i></button>
+                            <button class="order_by" type="submit" name="order" value="-description"><i
+                                    class="fas fa-long-arrow-alt-down {% if order == '-description' %} active {% endif %}"></i></button>
+                        </span>
+                    </th>
+                    <th scope="col">
+                        <span>Actions</span>
+                    </th>
+                </tr>
+                </thead>
+            </form>
+            <tbody>
+            <form method="post">
+                {% csrf_token %}
+                {% if page_listing %}
+                    {% for foo in page_listing %}
+                        <tr>
+                            <th scope="row">{{ foo.id }}</th>
+                            <td>{{ foo.student }}</td>
+                            <td>{{ foo.atten_date }}</td>
+                            <td>{{ foo.in_time }}</td>
+                            <td>{{ foo.out_time }}</td>
+                            {% if foo.description|length > 20 %}
+                                <td style="width: 60px; height: 50px"><p
+                                        style="overflow-y: scroll; height: 100%; width: 100%;font-size: 14px">{{ foo.description }}</p>
+                                </td>
+                            {% else %}
+                                <td><p>{{ foo.description }}</p></td>
+                            {% endif %}
+                            <td>
+                                <a name="edit" class="btn btn-sm me-2 btn-secondary"
+                                   href="{% url 'edit_attendance' pk=foo.id %}">Update</a>
+                                <a name="delete" class="btn btn-sm btn-danger"
+                                   href="{% url 'delete_attendance' pk=foo.id %}">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    Date not
+                {% endif %}
+            </form>
+            </tbody>
+        </table>
+        <div class="row my-2">
+            <div class="col">
+                Showing 1 to 2 of 2 entries
+            </div>
+            <div class="col">
+                {% if page_listing.has_other_pages %}
+                    <ul class="pagination justify-content-end">
+                        {% if page_listing.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="?pagination={{ page_listing.previous_page_number }}">&laquo;</a>
+                            </li>
+
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link">&laquo;</a>
+                            </li>
+                        {% endif %}
+                        {% for i in page_listing.paginator.page_range %}
+                            {% if page_listing.number == i %}
+                                <li class="page-item active">
+                                    <a class="page-link">{{ i }}</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?pagination={{ i }}">{{ i }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if page_listing.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?pagination={{ page_listing.next_page_number }}">&raquo;</a>
+                            </li>
+
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link">&raquo;</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- ===== Attendance List ====== -->
+
 {% endblock %}

@@ -19,32 +19,32 @@ body {
 
 @font-face {
   font-family: "Merriweather-Regular";
-  src: url("../../fonts/Merriweather/Merriweather-Regular.ttf");
+  src: url("../fonts/Merriweather/Merriweather-Regular.ttf");
 }
 
 @font-face {
   font-family: "Merriweather-Bold";
-  src: url("../../fonts/Merriweather/Merriweather-Bold.ttf");
+  src: url("../fonts/Merriweather/Merriweather-Bold.ttf");
 }
 
 @font-face {
   font-family: "Merriweather-Italic";
-  src: url("../../fonts/Merriweather/Merriweather-Italic.ttf");
+  src: url("../fonts/Merriweather/Merriweather-Italic.ttf");
 }
 
 @font-face {
   font-family: "Poppins-Regular";
-  src: url("../../fonts/Poppins/Poppins-Regular.ttf");
+  src: url("../fonts/Poppins/Poppins-Regular.ttf");
 }
 
 @font-face {
   font-family: "Poppins-Bold";
-  src: url("../../fonts/Poppins/Poppins-Bold.ttf");
+  src: url("../fonts/Poppins/Poppins-Bold.ttf");
 }
 
 @font-face {
   font-family: "Poppins-Italic";
-  src: url("../../fonts/Poppins/Poppins-Italic.ttf");
+  src: url("../fonts/Poppins/Poppins-Italic.ttf");
 }
 
 .loader {
@@ -256,3 +256,7 @@ body {
   font-family: "Poppins-Regular";
 }
 /*# sourceMappingURL=main.css.map */
+.order_by{
+  border: 0;
+  background-color: white;
+}
