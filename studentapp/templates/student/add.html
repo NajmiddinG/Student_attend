@@ -7,48 +7,56 @@
         </div>
     </div>
     <!-- ===== Form ===== -->
-    <form class="w-50 mx-auto my-4" action="{% url 'studentadd' %}" method="post">
+    <form class="w-50 mx-auto my-4" {% if edit_data %} action="{% url 'edit_student' pk=edit_data.id %}" {% else %}
+          action="{% url 'studentadd' %}" {% endif %} method="post">
         {% csrf_token %}
         <div class="mb-2">
-            <input type="text" name="roll_no" placeholder="Roll No." class="form-control">
+            <input type="text" name="roll_no" placeholder="Roll No." class="form-control"
+                   {% if edit_data %} value="{{ edit_data.roll_no }}" {% endif %}>
         </div>
         <div class="mb-2">
-            <input type="text" name="first_name" placeholder="First Name" class="form-control">
+            <input type="text" name="first_name" placeholder="First Name" class="form-control"
+                   {% if edit_data %} value="{{ edit_data.first_name }}" {% endif %}>
         </div>
         <div class="mb-2">
-            <input type="text" name="last_name" placeholder="Last Name" class="form-control">
+            <input type="text" name="last_name" placeholder="Last Name" class="form-control"
+                   {% if edit_data %} value="{{ edit_data.last_name }}" {% endif %}>
         </div>
         <div class="mb-2">
-            <input type="number" name="semestr" placeholder="Semestr" min=1 max="8" class="form-control">
+            <input type="number" name="semestr" placeholder="Semestr" min=1 max="8" class="form-control"
+                   {% if edit_data %} value="{{ edit_data.sem }}" {% endif %}>
         </div>
         <div class="mb-2">
-            <input type="text" name="branch" placeholder="Branch" class="form-control">
+            <input type="text" name="branch" placeholder="Branch" class="form-control" {% if edit_data %} value="{{ edit_data.branch }}" {% endif %}>
         </div>
         <div class="mb-2">
             <label class="me-3">
-                <input type="radio" checked name="gender"> Male
+                <input type="radio" {% if edit_data.gender == 'Male' %} checked {% endif %} name="gender" value="Male"> Male
             </label>
             <label>
-                <input type="radio" name="gender"> Female
+                <input type="radio" {% if edit_data.gender == 'Female' %} checked {% endif %} name="gender" value="Female"> Female
             </label>
         </div>
         <div class="mb-2">
-            <input type="number" name="contact_number" max="9999999999" min="100000000" placeholder="Contact Number" class="form-control">
+            <input type="number" name="contact_number" max="9999999999" min="100000000" placeholder="Contact Number"
+                   class="form-control" {% if edit_data %} value="{{ edit_data.nomer }}" {% endif %}>
         </div>
         <div class="mb-2">
-            <input type="email" name="email" placeholder="Email" class="form-control">
+            <input type="email" name="email" placeholder="Email" class="form-control" {% if edit_data %} value="{{ edit_data.email }}" {% endif %}>
         </div>
         <div class="mb-2">
-            <input type="text" name="city" placeholder="City" class="form-control">
+            <input type="text" name="city" placeholder="City" class="form-control" {% if edit_data %} value="{{ edit_data.city }}" {% endif %}>
         </div>
         <div class="mb-2">
-            <input type="number" name="pincode" min="0" placeholder="Pincode" class="form-control">
+            <input type="number" name="pincode" min="0" placeholder="Pincode" class="form-control"
+                   {% if edit_data %} value="{{ edit_data.pincode }}" {% endif %}>
         </div>
         <div class="mb-2">
-            <input type="text" name="address" placeholder="Address" class="form-control">
+            <input type="text" name="address" placeholder="Address" class="form-control"
+                   {% if edit_data %} value="{{ edit_data.address }}" {% endif %}>
         </div>
-        <button type="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
-        <button type="submit" name="back" class="btn btn-danger" value="back">Back</button>
+        <button type="submit" name="submit" class="btn bg-primary text-white" value="submit">{% if edit_data %} Edit Student {% else %} Add Student {% endif %}</button>
+        <button type="submit" name="back" class="btn btn-secondary" value="back">Back</button>
     </form>
     <!-- ===== /Form ===== -->
 {% endblock %}

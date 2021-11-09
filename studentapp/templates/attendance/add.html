@@ -7,39 +7,43 @@
         </div>
     </div>
     <section class="attendance container">
-        <form class="w-50 mx-auto" action="{% url 'attendanceadd' %}" method="post">
+        <form class="w-50 mx-auto" {% if edit_data %} action="{% url 'edit_attendance' pk=edit_data.id %}" {% else %}
+              action="{% url 'attendanceadd' %}" {% endif %} method="post">
             {% csrf_token %}
             <div class="mb-3">
                 <span>Student</span>
                 <select class="form-select" name="select" aria-label="Default select example">
                     {% if student_name %}
                         {% for student in student_name %}
-                            <option value="{{ student.id }}">{{ student.first_name|capfirst }}</option>
+                            <option value="{{ student.id }}" {% if edit_data.student.id == student.id %}
+                                    selected {% endif %}>{{ student.first_name|capfirst }}</option>
                         {% endfor %}
-
                     {% endif %}
                 </select>
             </div>
             <div class="mb-3">
                 <span>Attendance Date</span>
-                <input type="date" name="date"   class="form-control">
+                <input type="date" name="date" class="form-control" {% if edit_data %}
+                       value="{{ edit_data.atten_date|date:'Y-m-d' }}" {% endif %}>
             </div>
             <div class="mb-3">
                 <span>In_Time</span>
-                <input type="time" name="in_time" class="form-control">
+                <input type="time" name="in_time" class="form-control" {% if edit_data %}
+                       value="{{ edit_data.in_time }}" {% endif %}>
             </div>
             <div class="mb-3">
                 <span>Out_Time</span>
-                <input type="time" name="out_time" class="form-control">
+                <input type="time" name="out_time" class="form-control" {% if edit_data %}
+                       value="{{ edit_data.out_time }}" {% endif %}>
             </div>
             <div class="mb-3">
                 <span>Description</span>
-                <textarea class="form-control" name="description"></textarea>
+                <textarea class="form-control" name="description">{% if edit_data %}{{ edit_data.description }}{% endif %}</textarea>
             </div>
             <div class="mb-3">
-                <button type="submit" name="add" class="btn bg-primary text-white" value="submit">Add Attendance
+                <button type="submit" name="add" class="btn bg-primary text-white" value="submit">{% if edit_data %} Edit Attendance {% else %} Add Attendance {% endif %}
                 </button>
-                <button type="button" name="back" class="btn btn-secondary" value="back">Back</button>
+                <button type="submit" name="back" class="btn btn-secondary" value="back">Back</button>
             </div>
         </form>
     </section>

@@ -6,6 +6,8 @@ from django.utils.translation import gettext_lazy as _
 
 class CustomUser(AbstractUser):
     image = models.ImageField(upload_to='users/%Y-%m-%d/', default='users/profil.png')
+    student_pagination = models.IntegerField(default=10)
+    attend_pagination = models.IntegerField(default=10)
 
 
 class ContactInfo(models.Model):

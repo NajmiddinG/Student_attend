@@ -6,9 +6,9 @@ from .models import CustomUser, Student, StudentAttend, ContactInfo
 
 @admin.register(CustomUser)
 class UserAdmin(UserAdmin):
-    list_display = ('id', 'username', 'email', 'first_name', 'last_name', 'is_staff')
-    list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups')
-    search_fields = ('username', 'first_name', 'last_name', 'email')
+    list_display = ('id', 'username', 'email', 'first_name', 'last_name', 'attend_pagination', 'is_staff')
+    list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups', 'attend_pagination')
+    search_fields = ('username', 'first_name', 'last_name', 'email', 'attend_pagination')
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name', 'email')}),
@@ -16,7 +16,7 @@ class UserAdmin(UserAdmin):
             'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'),
         }),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
-        (_('CustomFields'), {'fields': ('image',)}),
+        (_('CustomFields'), {'fields': ('image', 'attend_pagination')}),
     )
 
 @admin.register(Student)
